@@ -7,10 +7,12 @@ const {
   register,
   login,
   logout,
-} = require('../controllers/authController');
+  showCurrentUser,
+} = require("../controllers/authController");
 
 router.post('/register', register);
 router.post('/login', login);
+router.route("/showMe").get(authenticateUser, showCurrentUser);
 router.delete('/logout', authenticateUser, logout);
 
 module.exports = router;
