@@ -5,7 +5,6 @@ const CustomError = require('../errors');
 const {
   attachCookiesToResponse,
   createTokenUser,
-  createHash,
 } = require('../utils');
 const crypto = require('crypto');
 
