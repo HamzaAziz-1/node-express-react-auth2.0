@@ -4,7 +4,7 @@ import main from '../assets/main.svg';
 import { useGlobalContext } from '../context';
 
 function Home() {
-  const {user} = useGlobalContext()
+  const { user } = useGlobalContext();
   return (
     <>
       <Wrapper className="page">
@@ -23,13 +23,16 @@ function Home() {
             authentication experience. No more managing passwords directly —
             leave the authentication to us.
           </p>
-
-          <Link to="/login" className="btn">
+          {!user && (
+            <>
+            <Link to="/login" className="btn">
             Login
           </Link>
           <Link to="/register" className="btn">
             Register
           </Link>
+           </>
+            )}
         </div>
         <img src={main} alt="job hunt" className="img main-img" />
       </Wrapper>
