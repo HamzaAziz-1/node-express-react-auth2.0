@@ -2,13 +2,16 @@ import styled from 'styled-components';
 import { useGlobalContext } from '../context';
 function Dashboard() {
   const { user } = useGlobalContext();
-  const { name, userId, } = user;
+  const { name, userId,role } = user;
   return (
     <>
-      <Wrapper className='page'>
+      <Wrapper className="page">
         <h2>Hello there, {name}</h2>
         <p>
           Your ID : <span>{userId}</span>
+        </p>
+        <p>
+          Your Role : <span>{role}</span>
         </p>
       </Wrapper>
     </>

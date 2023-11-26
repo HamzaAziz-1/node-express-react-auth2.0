@@ -1,38 +1,37 @@
-import { Link } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import main from '../assets/main.svg';
-import { Redirect } from 'react-router-dom';
 import { useGlobalContext } from '../context';
+
 function Home() {
-  const { user } = useGlobalContext();
+  const {user} = useGlobalContext()
   return (
     <>
-      {user && <Redirect to='/dashboard' />}
-      <Wrapper className='page'>
-        <div className='info'>
+      <Wrapper className="page">
+        <div className="info">
           <h2>
-            <span>Auth</span>
-            2.0
+            Secure and Seamless <span>Authentication</span> with OAuth 2.0
           </h2>
           <p>
-            I'm baby viral enamel pin chartreuse cliche retro af selfies kinfolk
-            photo booth plaid jianbing actually squid 3 wolf moon lumbersexual.
-            Hell of humblebrag gluten-free lo-fi man braid leggings.
+            Welcome to our OAuth 2.0 authentication platform. We provide a
+            secure and seamless way for you to authenticate and authorize
+            applications.
           </p>
           <p>
-            Cloud bread kale chips wayfarers deep v chicharrones leggings
-            fingerstache actually blog cliche four dollar toast. Sriracha ugh
-            kickstarter, next level la croix butcher lomo.
+            Whether you're building a web or mobile app, our OAuth 2.0
+            implementation ensures your users have a smooth and secure
+            authentication experience. No more managing passwords directly —
+            leave the authentication to us.
           </p>
 
-          <Link to='/login' className='btn'>
+          <Link to="/login" className="btn">
             Login
           </Link>
-          <Link to='/register' className='btn'>
+          <Link to="/register" className="btn">
             Register
           </Link>
         </div>
-        <img src={main} alt='job hunt' className='img main-img' />
+        <img src={main} alt="job hunt" className="img main-img" />
       </Wrapper>
     </>
   );

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Link,useHistory } from 'react-router-dom';
+import { Link,useHistory,Redirect } from 'react-router-dom';
 import FormRow from '../components/FormRow';
 import axios from 'axios';
 import useLocalState from '../utils/localState';
+import { useGlobalContext } from '../context';
 
 function Register() {
+  const { user } = useGlobalContext();
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -53,46 +55,47 @@ function Register() {
 
   return (
     <>
-      <Wrapper className='page'>
+      {user && <Redirect to="/dashboard" />}
+      <Wrapper className="page">
         {alert.show && (
           <div className={`alert alert-${alert.type}`}>{alert.text}</div>
         )}
         {!success && (
           <form
-            className={loading ? 'form form-loading' : 'form'}
+            className={loading ? "form form-loading" : "form"}
             onSubmit={onSubmit}
           >
             {/* single form row */}
 
             <FormRow
-              type='name'
-              name='name'
+              type="name"
+              name="name"
               value={values.name}
               handleChange={handleChange}
             />
 
             {/* single form row */}
             <FormRow
-              type='email'
-              name='email'
+              type="email"
+              name="email"
               value={values.email}
               handleChange={handleChange}
             />
             {/* end of single form row */}
             {/* single form row */}
             <FormRow
-              type='password'
-              name='password'
+              type="password"
+              name="password"
               value={values.password}
               handleChange={handleChange}
             />
             {/* end of single form row */}
-            <button type='submit' className='btn btn-block' disabled={loading}>
-              {loading ? 'Loading...' : 'Register'}
+            <button type="submit" className="btn btn-block" disabled={loading}>
+              {loading ? "Loading..." : "Register"}
             </button>
             <p>
               Already a have an account?
-              <Link to='/login' className='login-link'>
+              <Link to="/login" className="login-link">
                 Log In
               </Link>
             </p>

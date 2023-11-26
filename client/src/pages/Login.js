@@ -8,7 +8,7 @@ import useLocalState from '../utils/localState';
 import axios from 'axios';
 
 function Login() {
-  const { saveUser } = useGlobalContext();
+  const { saveUser,user } = useGlobalContext();
   const history = useHistory();
   const [values, setValues] = useState({
     email: '',
@@ -43,36 +43,37 @@ function Login() {
 
   return (
     <>
-      <Wrapper className='page'>
+      {user && <Redirect to="/dashboard" />}
+      <Wrapper className="page">
         {alert.show && (
           <div className={`alert alert-${alert.type}`}>{alert.text}</div>
         )}
         <form
-          className={loading ? 'form form-loading' : 'form'}
+          className={loading ? "form form-loading" : "form"}
           onSubmit={onSubmit}
         >
           {/* single form row */}
           <FormRow
-            type='email'
-            name='email'
+            type="email"
+            name="email"
             value={values.email}
             handleChange={handleChange}
           />
           {/* end of single form row */}
           {/* single form row */}
           <FormRow
-            type='password'
-            name='password'
+            type="password"
+            name="password"
             value={values.password}
             handleChange={handleChange}
           />
           {/* end of single form row */}
-          <button type='submit' className='btn btn-block' disabled={loading}>
-            {loading ? 'Loading...' : 'Login'}
+          <button type="submit" className="btn btn-block" disabled={loading}>
+            {loading ? "Loading..." : "Login"}
           </button>
           <p>
             Don't have an account?
-            <Link to='/register' className='register-link'>
+            <Link to="/register" className="register-link">
               Register
             </Link>
           </p>

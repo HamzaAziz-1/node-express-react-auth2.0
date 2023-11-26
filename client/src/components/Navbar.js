@@ -12,6 +12,16 @@ const Navbar = () => {
         <Link to='/' className='home-link'>
           <img src={logo} alt='jobs app' className='logo' />
         </Link>
+
+        <Link to='/' className='home-link'>
+          Home
+        </Link>
+        <Link to='/contact' className='home-link'>
+          Contact Us
+        </Link>
+        <Link to='/about' className='home-link'>
+          About
+        </Link>
         {user && (
           <div className='nav-links'>
             <p>hello, {user.name}</p>
@@ -50,7 +60,7 @@ const Wrapper = styled.nav`
   }
   .nav-links {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
   .nav-links p {
     margin: 0;
