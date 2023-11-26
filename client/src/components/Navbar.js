@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../assets/logo.png';
-import { Link } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 import { useGlobalContext } from '../context';
 
 const Navbar = () => {
   const { user, logoutUser } = useGlobalContext();
+  const history = useHistory();
   return (
     <Wrapper>
       <div className='nav-center'>
@@ -29,6 +30,7 @@ const Navbar = () => {
               className='btn btn-small'
               onClick={() => {
                 logoutUser();
+                history.push('/')
               }}
             >
               logout
