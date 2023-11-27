@@ -7,6 +7,7 @@ import {
   Dashboard,
   ProtectedRoute,
   About,
+  KKULogin,
   Contact
 } from './pages';
 import Navbar from './components/Navbar';
@@ -24,25 +25,28 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route path='/' exact>
+        <Route path="/" exact>
           <Home />
         </Route>
-        <Route path='/login' exact>
+        <Route path="/login" exact>
           <Login />
         </Route>
-        <Route path='/register' exact>
+        <Route path="/log-in" exact>
+          <KKULogin />
+        </Route>
+        <Route path="/register" exact>
           <Register />
         </Route>
-        <Route path='/contact' exact>
+        <Route path="/contact" exact>
           <Contact />
         </Route>
-        <Route path='/about' exact>
+        <Route path="/about" exact>
           <About />
         </Route>
-        <ProtectedRoute path='/dashboard' exact>
+        <ProtectedRoute path="/dashboard" exact>
           <Dashboard />
         </ProtectedRoute>
-        <Route path='*'>
+        <Route path="*">
           <Error />
         </Route>
       </Switch>
